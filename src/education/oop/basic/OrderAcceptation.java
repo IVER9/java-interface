@@ -9,5 +9,5 @@ public interface OrderAcceptation {
 	public boolean order(String item);
 	
 	//’•¶‚ğŠm’è‚³‚¹‚ÄA–â‚¢‡‚í‚¹”Ô†‚ğ‚©‚¦‚·B
-	public String confirm(String name, String adress);
+	public String confirm(String name, String address);
 }

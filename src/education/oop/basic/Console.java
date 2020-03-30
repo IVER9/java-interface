@@ -11,6 +11,11 @@ public class Console {
 
 	private BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
+	public static void main(String[] args) {
+		
+		Console console = new Console();
+		console.init();
+	}
 	// 初期画面
 	public void init() {
 
@@ -25,6 +30,7 @@ public class Console {
 			String reply = in.readLine();
 			if ("1".equalsIgnoreCase(reply)) {
 				// 注文受付システムが選択された場合の処理を呼びだす
+				runOrderAcceptance();
 			} else if ("2".equalsIgnoreCase(reply)) {
 				// 貨物追跡サービスが呼ばれた場合の処理を呼び出す
 				runCargoTracking();
@@ -48,7 +54,7 @@ public class Console {
 		out.println();
 
 		// 商品一覧を表示する
-		OrderAcceptation oa = null;
+		OrderAcceptance oa = new OrderAcceptance();
 		String[] items = oa.queryItems();
 
 		for (int i = 0; i < items.length; i++) {
@@ -121,7 +127,7 @@ public class Console {
 
 		try {
 			String queryNo = in.readLine();
-			CargoTracking tracker = null;
+			CargoTracking tracker = new DeliveryManager();
 
 			String state = tracker.track(queryNo);
 
